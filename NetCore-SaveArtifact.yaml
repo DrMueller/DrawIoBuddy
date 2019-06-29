@@ -15,8 +15,6 @@ resources:
 jobs:
 - job: 'BuildAndPublishAsArtifact'
   displayName: 'Build and save zipped Artifact'
-  pool:
-    name: Default
   steps:
   - template: AzureDevOps/Templates/StepTemplates/NetCore/Initialize_And_Test.yaml@ALMStuff
     parameters:
