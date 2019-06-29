@@ -1,4 +1,7 @@
-name: 1.0$(rev:.r) # build numbering format
+name: 1.0$(rev:.r) # build numbering for
+
+pool:
+  name: Default
 
 variables:
   BuildConfiguration: 'Release'
@@ -15,7 +18,6 @@ resources:
 jobs:
 - job: 'BuildAndPublishAsArtifact'
   displayName: 'Build and save zipped Artifact'
-  pool: Default
   steps:
   - template: AzureDevOps/Templates/StepTemplates/NetCore/Initialize_And_Test.yaml@ALMStuff
     parameters:
