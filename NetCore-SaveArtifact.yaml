@@ -10,7 +10,7 @@ resources:
     type: github
     name: DrMueller/ALMStuff
     ref: refs/heads/master
-    endpoint: GitHub-DrMuellerz
+    endpoint: GitHub-DrMueller
     
 jobs:
 - job: 'BuildAndPublishAsArtifact'
