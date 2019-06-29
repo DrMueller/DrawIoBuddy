@@ -14,17 +14,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="C:\Users\Matthias\.nuget\packages\mmu.mlh.wpfcoreextensions\1.0.31\contentFiles\any\netcoreapp3.0\Infrastructure\Assets\App.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="C:\Users\Matthias\.nuget\packages\mmu.mlh.wpfcoreextensions\1.0.31\contentFiles\any\netcoreapp3.0\Nlog.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Areas\Uml\ClassFromMetaData\ViewServices\" />
     <Folder Include="Areas\Uml\ClassFromMetaData\ViewData\" />
     <Folder Include="Areas\Uml\ClassFromMetaData\ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Infrastructure\Assets\App.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Nlog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
