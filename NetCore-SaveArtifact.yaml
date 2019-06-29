@@ -2,7 +2,7 @@ name: 1.0$(rev:.r) # build numbering for
 
 variables:
   BuildConfiguration: 'Release'
-  FolderToPublish: 'Application'
+  FolderToPublish: 'WpfUI'
 
 resources:
   repositories:
@@ -21,4 +21,8 @@ jobs:
   - template: AzureDevOps/Templates/StepTemplates/NetCore/Initialize_And_Test.yaml@ALMStuff
     parameters:
       buildConfiguration: $(BuildConfiguration)
+  - template: AzureDevOps/Templates/StepTemplates/NetCore/Publish.yaml@ALMStuff
+    parameters:
+      BuildConfiguration: $(BuildConfiguration)
+      FolderToPublish: $(FolderToPublish)
   - template: AzureDevOps/Templates/StepTemplates/NetCore/Zip_And_Save_Artifact.yaml@ALMStuff
