@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Mmu.DrawIoBuddy.Domain;
-using Mmu.DrawIoBuddy.DomainServices.Areas.DrawIo.Model;
-using Mmu.DrawIoBuddy.DomainServices.Areas.DrawIo.Models;
+using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml;
 using Mmu.DrawIoBuddy.DomainServices.Areas.DrawIo.Services;
 using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
 

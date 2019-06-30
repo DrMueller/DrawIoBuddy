@@ -1,8 +1,8 @@
-﻿using System.Xml.Linq;
+using System.Xml.Linq;
 using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml;
 using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
 
-namespace Mmu.DrawIoBuddy.DomainServices.Infrastructure.Xml.Extensions
+namespace Mmu.DrawIoBuddy.Domain.Infrastructure.Xml.Extensions
 {
     public static class XmlExtensions
     {

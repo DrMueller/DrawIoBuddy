@@ -1,8 +1,8 @@
-﻿using System.Xml.Linq;
-using Mmu.DrawIoBuddy.DomainServices.Infrastructure.Xml.Extensions;
+using System.Xml.Linq;
+using Mmu.DrawIoBuddy.Domain.Infrastructure.Xml.Extensions;
 using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
 
-namespace Mmu.DrawIoBuddy.DomainServices.Areas.DrawIo.Models
+namespace Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml
 {
     public class MxGeometry : IMxElement
     {

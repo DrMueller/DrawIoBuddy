@@ -1,9 +1,8 @@
-﻿using System.Xml.Linq;
-using Mmu.DrawIoBuddy.DomainServices.Areas.DrawIo.Models;
-using Mmu.DrawIoBuddy.DomainServices.Infrastructure.Xml.Extensions;
+using System.Xml.Linq;
+using Mmu.DrawIoBuddy.Domain.Infrastructure.Xml.Extensions;
 using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
 
-namespace Mmu.DrawIoBuddy.DomainServices.Areas.DrawIo.Model
+namespace Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml
 {
     public class MxCell : IMxElement
     {
@@ -28,6 +27,17 @@ namespace Mmu.DrawIoBuddy.DomainServices.Areas.DrawIo.Model
             Vertex = vertex;
             Parent = parent;
             Geometry = geometry;
+        }
+
+        public static MxCell CreateEmpty(int id)
+        {
+            return new MxCell(
+                id,
+                Maybe.CreateNone<string>(),
+                Maybe.CreateNone<string>(),
+                Maybe.CreateNone<int>(),
+                Maybe.CreateNone<int>(),
+                Maybe.CreateNone<MxGeometry>());
         }
 
         public XObject ToXml()
