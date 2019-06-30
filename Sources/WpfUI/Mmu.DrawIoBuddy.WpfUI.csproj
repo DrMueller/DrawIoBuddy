@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Areas\Decoding\ViewModels\DecodingView.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Sdk.WindowsDesktop" Version="3.0.0-preview3-27504-2" />
     <PackageReference Include="Mmu.Mlh.WpfCoreExtensions" Version="1.0.31" />
   </ItemGroup>
@@ -17,6 +21,17 @@
     <Folder Include="Areas\Uml\ClassFromMetaData\ViewServices\" />
     <Folder Include="Areas\Uml\ClassFromMetaData\ViewData\" />
     <Folder Include="Areas\Uml\ClassFromMetaData\ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DomainServices\Mmu.DrawIoBuddy.DomainServices.csproj" />
+    <ProjectReference Include="..\Domain\Mmu.DrawIoBuddy.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Areas\Decoding\ViewModels\DecodingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
