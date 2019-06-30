@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Linq;
 using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml;
 
 namespace Mmu.DrawIoBuddy.DomainServices.Areas.DrawIo.Services
 {
-    public interface IXmlFactory
+    internal interface IXmlFactory
     {
-        string CreateDrawIoXmlString(IReadOnlyCollection<IMxElement> elements);
+        XDocument CreateFromElements(IReadOnlyCollection<IMxElement> elements);
     }
 }

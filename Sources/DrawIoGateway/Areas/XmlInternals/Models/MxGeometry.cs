@@ -4,7 +4,7 @@ using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
 
 namespace Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml
 {
-    public class MxGeometry : IMxElement
+    internal class MxGeometry : IMxElement
     {
         public int Height { get; }
         public int Width { get; }

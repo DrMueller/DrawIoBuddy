@@ -2,7 +2,7 @@ using System.Xml.Linq;
 
 namespace Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml
 {
-    public interface IMxElement
+    internal interface IMxElement
     {
         XObject ToXml();
     }

@@ -4,7 +4,7 @@ using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
 
 namespace Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml
 {
-    public class MxCell : IMxElement
+    internal class MxCell : IMxElement
     {
         public Maybe<MxGeometry> Geometry { get; }
         public int Id { get; }

@@ -2,12 +2,13 @@
 using System.Linq;
 using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Elements.MetaData;
 using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes;
 using Mmu.Mlh.LanguageExtensions.Areas.Invariance;
 using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
 
 namespace Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Elements.Uml
 {
-    public class UmlClass2 : IDrawIoElement
+    public class UmlClass2 : DrawIoShapeBase
     {
         private readonly Position _position;
 
@@ -27,7 +28,7 @@ namespace Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Elements.Uml
             Properties = properties;
         }
 
-        public IReadOnlyCollection<IMxElement> ToMxElements()
+        internal override IReadOnlyCollection<IMxElement> ToMxElements()
         {
             var topLevelCell = MxCell.CreateEmpty(0);
 
