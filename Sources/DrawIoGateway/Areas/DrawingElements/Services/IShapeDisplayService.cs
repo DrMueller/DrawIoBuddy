@@ -1,5 +1,5 @@
-﻿using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Elements;
-using Mmu.DrawIoBuddy.Domain.Areas.StringNative;
+﻿using Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.Strings.Models;
 
 namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Services
 {

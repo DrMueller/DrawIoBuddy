@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
-using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Elements.MetaData;
-using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml;
-using Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.MetaData;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models;
 using Mmu.Mlh.LanguageExtensions.Areas.Invariance;
 using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
 
-namespace Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Elements.Uml
+namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml
 {
-    public class UmlClass2 : DrawIoShapeBase
+    public class UmlClass2 : ShapeBase
     {
         private readonly Position _position;
 

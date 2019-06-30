@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Net;
 using Mmu.Mlh.LanguageExtensions.Areas.Invariance;
 
-namespace Mmu.DrawIoBuddy.Domain.Areas.StringNative
+namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.Strings.Models
 {
     public class DrawIoString
     {

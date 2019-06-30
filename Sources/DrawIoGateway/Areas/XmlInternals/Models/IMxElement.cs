@@ -1,6 +1,6 @@
 using System.Xml.Linq;
 
-namespace Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml
+namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models
 {
     internal interface IMxElement
     {

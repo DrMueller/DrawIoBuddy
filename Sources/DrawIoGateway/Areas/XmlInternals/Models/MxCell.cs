@@ -1,8 +1,8 @@
 using System.Xml.Linq;
-using Mmu.DrawIoBuddy.Domain.Infrastructure.Xml.Extensions;
+using Mmu.DrawIoBuddy.DrawIoGateway.Infrastructure.Xml.Extensions;
 using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
 
-namespace Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml
+namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models
 {
     internal class MxCell : IMxElement
     {

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
-using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Elements;
-using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models;
 
 namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes
 {

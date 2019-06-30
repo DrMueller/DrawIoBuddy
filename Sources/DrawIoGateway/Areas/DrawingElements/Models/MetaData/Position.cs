@@ -1,4 +1,4 @@
-﻿namespace Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Elements.MetaData
+namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.MetaData
 {
     public class Position
     {

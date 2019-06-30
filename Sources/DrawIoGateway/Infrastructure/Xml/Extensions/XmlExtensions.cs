@@ -1,12 +1,12 @@
 using System.Xml.Linq;
-using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models;
 using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
 
-namespace Mmu.DrawIoBuddy.Domain.Infrastructure.Xml.Extensions
+namespace Mmu.DrawIoBuddy.DrawIoGateway.Infrastructure.Xml.Extensions
 {
-    public static class XmlExtensions
+    internal static class XmlExtensions
     {
-        public static void AddAttributeFromMaybe<T>(this XContainer parent, string name, Maybe<T> value)
+        internal static void AddAttributeFromMaybe<T>(this XContainer parent, string name, Maybe<T> value)
         {
             value.Evaluate(val =>
             {
@@ -16,7 +16,7 @@ namespace Mmu.DrawIoBuddy.Domain.Infrastructure.Xml.Extensions
             });
         }
 
-        public static void AddElementFromMaybe<T>(this XContainer parent, string name, Maybe<T> value)
+        internal static void AddElementFromMaybe<T>(this XContainer parent, string name, Maybe<T> value)
         {
             value.Evaluate(val =>
             {
@@ -25,7 +25,7 @@ namespace Mmu.DrawIoBuddy.Domain.Infrastructure.Xml.Extensions
             });
         }
 
-        public static void AddMxElementFromMaybe(this XContainer parent, Maybe<IMxElement> element)
+        internal static void AddMxElementFromMaybe(this XContainer parent, Maybe<IMxElement> element)
         {
             element.Evaluate(val =>
             {

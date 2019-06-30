@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Mmu.DrawIoBuddy.WpfUI.Areas.Uml.ClassFromMetaData.ViewServices;
+using Mmu.DrawIoBuddy.DomainServices.Areas.SqlMetaData.Services;
 using Mmu.Mlh.WpfCoreExtensions.Areas.MvvmShell.CommandManagement.Commands;
 using Mmu.Mlh.WpfCoreExtensions.Areas.MvvmShell.CommandManagement.Components.CommandBars.ViewData;
 using Mmu.Mlh.WpfCoreExtensions.Areas.MvvmShell.CommandManagement.ViewModelCommands;
@@ -8,7 +8,7 @@ namespace Mmu.DrawIoBuddy.WpfUI.Areas.Uml.ClassFromMetaData.ViewModels
 {
     public class CommandContainer : IViewModelCommandContainer<ClassFromMetaDataViewModel>
     {
-        private readonly IClassTransformatorViewService _transformator;
+        private readonly ISqlMetaDataTransformer _transformer;
         private ClassFromMetaDataViewModel _context;
         public CommandsViewData Commands { get; private set; }
         public string Text { get; private set; }
@@ -21,14 +21,14 @@ namespace Mmu.DrawIoBuddy.WpfUI.Areas.Uml.ClassFromMetaData.ViewModels
                     "Create",
                     new RelayCommand(() =>
                     {
-                        _context.DrawIoOutput = _transformator.Transform(_context.MetaData);
+                        _context.DrawIoOutput = _transformer.Transform(_context.MetaData);
                     }));
             }
         }
 
-        public CommandContainer(IClassTransformatorViewService transformator)
+        public CommandContainer(ISqlMetaDataTransformer transformer)
         {
-            _transformator = transformator;
+            _transformer = transformer;
         }
 
         public Task InitializeAsync(ClassFromMetaDataViewModel context)

@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Xml.Linq;
-using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Xml;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models;
 using Mmu.Mlh.LanguageExtensions.Areas.Collections;
 
-namespace Mmu.DrawIoBuddy.DomainServices.Areas.DrawIo.Services.Implementation
+namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Services.Implementation
 {
-    internal class XmlFactory : IXmlFactory
+    internal class XmlDocumentFactory : IXmlDocumentFactory
     {
         public XDocument CreateFromElements(IReadOnlyCollection<IMxElement> elements)
         {

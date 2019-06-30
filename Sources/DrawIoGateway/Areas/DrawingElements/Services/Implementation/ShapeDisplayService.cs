@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Xml.Linq;
-using Mmu.DrawIoBuddy.Domain.Areas.DrawIo.Elements;
-using Mmu.DrawIoBuddy.Domain.Areas.StringNative;
-using Mmu.DrawIoBuddy.DomainServices.Areas.DrawIo.Services;
 using Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.Strings.Models;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Services;
 
 namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Services.Implementation
 {
     internal class ShapeDisplayService : IShapeDisplayService
     {
-        private readonly IXmlFactory _xmlFactory;
+        private readonly IXmlDocumentFactory _xmlDocumentFactory;
 
-        public ShapeDisplayService(IXmlFactory xmlFactory)
+        public ShapeDisplayService(IXmlDocumentFactory xmlFactory)
         {
-            _xmlFactory = xmlFactory;
+            _xmlDocumentFactory = xmlFactory;
         }
 
         [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1119:StatementMustNotUseUnnecessaryParenthesis", Justification = "Actually needed")]
@@ -26,7 +25,7 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Services.Implement
             }
 
             var mxElements = shapeBase.ToMxElements();
-            var xDocument = _xmlFactory.CreateFromElements(mxElements);
+            var xDocument = _xmlDocumentFactory.CreateFromElements(mxElements);
             var xmlString = xDocument.ToString(SaveOptions.DisableFormatting);
             var result = new DrawIoString(xmlString);
             return result;
