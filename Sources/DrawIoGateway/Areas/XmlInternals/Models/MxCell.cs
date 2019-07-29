@@ -6,12 +6,12 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models
 {
     internal class MxCell : IMxElement
     {
-        public Maybe<MxGeometry> Geometry { get; }
-        public int Id { get; }
-        public Maybe<int> Parent { get; }
-        public Maybe<string> Style { get; }
-        public Maybe<string> Value { get; }
-        public Maybe<int> Vertex { get; }
+        private readonly Maybe<MxGeometry> _geometry;
+        private readonly int _id;
+        private readonly Maybe<int> _parent;
+        private readonly Maybe<string> _style;
+        private readonly Maybe<string> _value;
+        private readonly Maybe<int> _vertex;
 
         public MxCell(
             int id,
@@ -21,12 +21,12 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models
             Maybe<int> parent,
             Maybe<MxGeometry> geometry)
         {
-            Id = id;
-            Value = value;
-            Style = style;
-            Vertex = vertex;
-            Parent = parent;
-            Geometry = geometry;
+            _id = id;
+            _value = value;
+            _style = style;
+            _vertex = vertex;
+            _parent = parent;
+            _geometry = geometry;
         }
 
         public static MxCell CreateEmpty(int id)
@@ -43,12 +43,12 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models
         public XObject ToXml()
         {
             var element = new XElement("mxCell");
-            element.Add(new XAttribute("id", Id));
-            element.AddAttributeFromMaybe("value", Value);
-            element.AddAttributeFromMaybe("style", Style);
-            element.AddAttributeFromMaybe("vertex", Vertex);
-            element.AddAttributeFromMaybe("parent", Parent);
-            Geometry.Evaluate(geo => element.Add(geo.ToXml()));
+            element.Add(new XAttribute("id", _id));
+            element.AddAttributeFromMaybe("value", _value);
+            element.AddAttributeFromMaybe("style", _style);
+            element.AddAttributeFromMaybe("vertex", _vertex);
+            element.AddAttributeFromMaybe("parent", _parent);
+            _geometry.Evaluate(geo => element.Add(geo.ToXml()));
 
             return element;
         }

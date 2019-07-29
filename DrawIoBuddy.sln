@@ -12,6 +12,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{F732CE0C-FF01-42B4-8045-FEE694E300DC}"
 	ProjectSection(SolutionItems) = preProject
 		Documents\ExampleMetaData.txt = Documents\ExampleMetaData.txt
+		Proceeding.txt = Proceeding.txt
+		SqlSelect.txt = SqlSelect.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mmu.DrawIoBuddy.DrawIoGateway", "Sources\DrawIoGateway\Mmu.DrawIoBuddy.DrawIoGateway.csproj", "{E26FAB8D-5694-43D8-9C78-2D31A590DC47}"

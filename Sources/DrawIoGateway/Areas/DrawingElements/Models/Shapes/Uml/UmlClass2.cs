@@ -45,7 +45,7 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml
                 "swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;",
                 1,
                 1,
-                new MxGeometry(_position.X, _position.Y, 140, 52));
+                new MxGeometry(_position.X, _position.Y, 140, 52, Maybe.CreateNone<MxPoint>()));
 
             var propertyCells = new List<MxCell>();
 
@@ -59,7 +59,7 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml
                     "text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;",
                     1,
                     2,
-                    new MxGeometry(230, yAxis, 140, 26));
+                    new MxGeometry(230, yAxis, 140, 26, Maybe.CreateNone<MxPoint>()));
 
                 propertyCells.Add(cell);
             }

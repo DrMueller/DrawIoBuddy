@@ -1,0 +1,7 @@
+1. Copy the Shape in Draw.IO
+2. Copy & Paste it to get the encoded XML string
+3. Start the program and use the decode functionality for the string
+4. Save the decoded string as xml
+5. Use VSCode to format it
+6. Create the C# Class under shapes
+7. Define the inner XML Structure via .ToMxElements()

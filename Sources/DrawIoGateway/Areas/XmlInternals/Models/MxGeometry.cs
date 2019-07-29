@@ -6,27 +6,30 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models
 {
     internal class MxGeometry : IMxElement
     {
-        public int Height { get; }
-        public int Width { get; }
-        public Maybe<int> X { get; }
-        public int Y { get; }
+        private readonly Maybe<MxPoint> _point;
+        private readonly int _height;
+        private readonly int _width;
+        private readonly Maybe<int> _x;
+        private readonly int _y;
 
-        public MxGeometry(Maybe<int> x, int y, int width, int height)
+        public MxGeometry(Maybe<int> x, int y, int width, int height, Maybe<MxPoint> point)
         {
-            X = x;
-            Y = y;
-            Width = width;
-            Height = height;
+            _x = x;
+            _y = y;
+            _width = width;
+            _height = height;
+            _point = point;
         }
 
         public XObject ToXml()
         {
             var element = new XElement("mxGeometry");
-            element.AddAttributeFromMaybe("x", X);
-            element.Add(new XAttribute("y", Y));
-            element.Add(new XAttribute("width", Width));
-            element.Add(new XAttribute("height", Height));
+            element.AddAttributeFromMaybe("x", _x);
+            element.Add(new XAttribute("y", _y));
+            element.Add(new XAttribute("width", _width));
+            element.Add(new XAttribute("height", _height));
             element.Add(new XAttribute("as", "geometry"));
+            _point.Evaluate(point => element.Add(point.ToXml()));
 
             return element;
         }

@@ -1,0 +1,6 @@
+SELECT 
+   obj.name + ';' + col.name + ';' + types.name + ';' + CAST(types.max_length AS NVARCHAR)
+FROM   sys.objects AS obj
+       JOIN sys.columns AS col	ON obj.object_id = col.object_id
+       JOIN sys.types AS types	ON col.system_type_id = types.system_type_id
+WHERE  obj.type_desc = 'USER_TABLE' AND types.name != 'sysname'
