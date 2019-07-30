@@ -6,6 +6,7 @@
     <UseWPF>true</UseWPF>
     <Features>IOperation</Features>
     <CodeAnalysisRuleSet>..\..\CA_ProductionCode.ruleset</CodeAnalysisRuleSet>
+    <ApplicationIcon>Infrastructure\Assets\App.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
