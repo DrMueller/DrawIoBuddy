@@ -5,6 +5,6 @@ namespace Mmu.DrawIoBuddy.DomainServices.Areas.SqlMetaData.Services.Servants
 {
     public interface ISqlMetaDataFactory
     {
-        IReadOnlyCollection<SqlMetaData2> Parse(string str);
+        IReadOnlyCollection<Domain.SqlMetaData> Parse(string str);
     }
 }

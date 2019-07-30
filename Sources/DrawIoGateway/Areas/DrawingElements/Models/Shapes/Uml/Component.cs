@@ -6,10 +6,6 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml
 {
     public class Component : ShapeBase
     {
-        public Component()
-        {
-        }
-
         internal override IReadOnlyCollection<IMxElement> ToMxElements()
         {
             var topLevelCell = MxCell.CreateEmpty(0);

@@ -1,5 +1,8 @@
 using System;
+using System.Linq;
 using System.Net;
+using System.Text;
+using Mmu.Mlh.LanguageExtensions.Areas.Collections;
 using Mmu.Mlh.LanguageExtensions.Areas.Invariance;
 
 namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.Strings.Models
@@ -22,7 +25,16 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.Strings.Models
 
         public string EncodeString()
         {
-            return Uri.EscapeUriString(_str);
+            const int UriMaxLength = 65519;
+            var chunkedStr = _str.Chunk(UriMaxLength);
+            StringBuilder sb = new StringBuilder();
+
+            chunkedStr.ForEach(chunk =>
+            {
+                sb.Append(Uri.EscapeUriString(new string(chunk.ToArray())));
+            });
+
+            return sb.ToString();
         }
     }
 }

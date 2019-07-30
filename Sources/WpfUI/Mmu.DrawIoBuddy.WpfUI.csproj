@@ -27,6 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DomainServices\Mmu.DrawIoBuddy.DomainServices.csproj" />
     <ProjectReference Include="..\Domain\Mmu.DrawIoBuddy.Domain.csproj" />
+    <ProjectReference Include="..\DrawIoGateway\Mmu.DrawIoBuddy.DrawIoGateway.csproj" />
   </ItemGroup>
 
   <ItemGroup>

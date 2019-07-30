@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Xml.Linq;
-using Mmu.DrawIoBuddy.DomainServices.Areas.StringEncoding.Services;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.Strings.Models;
 using Mmu.Mlh.WpfCoreExtensions.Areas.MvvmShell.CommandManagement.Commands;
 using Mmu.Mlh.WpfCoreExtensions.Areas.MvvmShell.CommandManagement.Components.CommandBars.ViewData;
 using Mmu.Mlh.WpfCoreExtensions.Areas.MvvmShell.CommandManagement.ViewModelCommands;
@@ -9,7 +9,6 @@ namespace Mmu.DrawIoBuddy.WpfUI.Areas.Decoding.ViewModels
 {
     public class CommandContainer : IViewModelCommandContainer<DecodingViewModel>
     {
-        private readonly IStringEncodingService _stringEncodingService;
         private DecodingViewModel _context;
         public CommandsViewData Commands { get; private set; }
         public string Text { get; private set; }
@@ -20,7 +19,7 @@ namespace Mmu.DrawIoBuddy.WpfUI.Areas.Decoding.ViewModels
             {
                 return new ViewModelCommand(
                     "Decode",
-                    new RelayCommand(() => _context.DecodedText = _stringEncodingService.Decode(_context.EncodedText)));
+                    new RelayCommand(() => _context.DecodedText = new DrawIoString(_context.EncodedText).DecodeString()));
             }
         }
 
@@ -30,7 +29,7 @@ namespace Mmu.DrawIoBuddy.WpfUI.Areas.Decoding.ViewModels
             {
                 return new ViewModelCommand(
                     "Encode",
-                    new RelayCommand(() => _context.EncodedText = _stringEncodingService.Encode(_context.DecodedText)));
+                    new RelayCommand(() => _context.EncodedText = new DrawIoString(_context.DecodedText).EncodeString()));
             }
         }
 
@@ -46,11 +45,6 @@ namespace Mmu.DrawIoBuddy.WpfUI.Areas.Decoding.ViewModels
                         doc.Save(@"C:\Users\Matthias\Desktop\Work\Tra.xml");
                     }));
             }
-        }
-
-        public CommandContainer(IStringEncodingService stringEncodingService)
-        {
-            _stringEncodingService = stringEncodingService;
         }
 
         public Task InitializeAsync(DecodingViewModel context)

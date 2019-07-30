@@ -38,9 +38,6 @@ namespace Mmu.DrawIoBuddy.WpfUI.Areas.Uml.Components.ViewModels
                     {
                         var component = new Component();
                         var drawIoString = _shapeDisplayService.CreateDisplayString(component);
-
-                        var decoded = drawIoString.DecodeString();
-                        File.WriteAllText(@"C:\Users\mlm\Desktop\Created.xml", decoded);
                         _context.DrawIoOutput = drawIoString.EncodeString();
                     }));
             }
