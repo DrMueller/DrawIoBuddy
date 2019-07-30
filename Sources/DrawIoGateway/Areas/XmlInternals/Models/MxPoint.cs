@@ -15,7 +15,7 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models
 
         public XObject ToXml()
         {
-            var element = new XElement("mxGeometry");
+            var element = new XElement("mxPoint");
             element.Add(new XAttribute("x", _x));
             element.Add(new XAttribute("y", _y));
             element.Add(new XAttribute("as", "offset"));

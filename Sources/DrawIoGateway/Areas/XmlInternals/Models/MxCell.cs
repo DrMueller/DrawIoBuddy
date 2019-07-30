@@ -48,7 +48,7 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models
             element.AddAttributeFromMaybe("style", _style);
             element.AddAttributeFromMaybe("vertex", _vertex);
             element.AddAttributeFromMaybe("parent", _parent);
-            _geometry.Evaluate(geo => element.Add(geo.ToXml()));
+            element.AddMxElementFromMaybe(_geometry);
 
             return element;
         }

@@ -25,7 +25,8 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Infrastructure.Xml.Extensions
             });
         }
 
-        internal static void AddMxElementFromMaybe(this XContainer parent, Maybe<IMxElement> element)
+        internal static void AddMxElementFromMaybe<T>(this XContainer parent, Maybe<T> element)
+            where T : IMxElement
         {
             element.Evaluate(val =>
             {

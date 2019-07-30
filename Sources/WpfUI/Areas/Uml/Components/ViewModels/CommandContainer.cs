@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.IO;
+using System.Threading.Tasks;
 using Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml;
 using Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Services;
 using Mmu.Mlh.WpfCoreExtensions.Areas.MvvmShell.CommandManagement.Commands;
@@ -9,26 +10,7 @@ namespace Mmu.DrawIoBuddy.WpfUI.Areas.Uml.Components.ViewModels
 {
     public class CommandContainer : IViewModelCommandContainer<ComponentsViewModel>
     {
-        private readonly IShapeDisplayService _shapeDisplayService;
-
-        private ComponentsViewModel _context;
-
         public CommandsViewData Commands { get; private set; }
-
-        private ViewModelCommand CreateEmptyContent
-        {
-            get
-            {
-                return new ViewModelCommand(
-                    "Create empty Component",
-                    new RelayCommand(() =>
-                    {
-                        var component = new Component();
-                        var drawIoString = _shapeDisplayService.CreateDisplayString(component);
-                        _context.DrawIoOutput = drawIoString.EncodeString();
-                    }));
-            }
-        }
 
         public CommandContainer(IShapeDisplayService shapeDisplayService)
         {
@@ -38,8 +20,30 @@ namespace Mmu.DrawIoBuddy.WpfUI.Areas.Uml.Components.ViewModels
         public Task InitializeAsync(ComponentsViewModel context)
         {
             _context = context;
-            Commands = new CommandsViewData(CreateEmptyContent);
+            Commands = new CommandsViewData(CreateEmptyComponent);
             return Task.CompletedTask;
+        }
+
+        private readonly IShapeDisplayService _shapeDisplayService;
+
+        private ComponentsViewModel _context;
+
+        private ViewModelCommand CreateEmptyComponent
+        {
+            get
+            {
+                return new ViewModelCommand(
+                    "Create empty Component",
+                    new RelayCommand(() =>
+                    {
+                        var component = new Component();
+                        var drawIoString = _shapeDisplayService.CreateDisplayString(component);
+
+                        var decoded = drawIoString.DecodeString();
+                        File.WriteAllText(@"C:\Users\mlm\Desktop\Created.xml", decoded);
+                        _context.DrawIoOutput = drawIoString.EncodeString();
+                    }));
+            }
         }
     }
 }

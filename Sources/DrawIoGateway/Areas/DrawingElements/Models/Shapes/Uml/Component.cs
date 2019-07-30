@@ -24,20 +24,19 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml
 
             var headingCell = new MxCell(
                 2,
-                "Tra",
-                //"&amp;laquo;Annotation&amp;raquo;&lt;br/&gt;&lt;b&gt;Component&lt;/b&gt;",
+                "Component",
                 "html=1;",
                 1,
                 1,
-                new MxGeometry(210, 210, 180, 90, Maybe.CreateNone<MxPoint>()));
+                new MxGeometry(210, 210, 180, 90, Maybe.CreateNone<int>(), Maybe.CreateNone<MxPoint>()));
 
             var valueCell = new MxCell(
                 3,
-                Maybe.CreateNone<string>(),
+                string.Empty,
                 "shape=component;jettyWidth=8;jettyHeight=4;",
                 1,
                 2,
-                new MxGeometry(1, 20, 20, 1, new MxPoint(-27, 7)));
+                new MxGeometry(1, Maybe.CreateNone<int>(), 20, 20, 1, new MxPoint(-27, 7)));
 
             var result = new List<IMxElement>()
             {
