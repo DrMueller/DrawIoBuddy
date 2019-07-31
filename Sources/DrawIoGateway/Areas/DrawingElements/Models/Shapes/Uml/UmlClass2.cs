@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.MetaData;
 using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.MxBuilders;
 using Mmu.Mlh.LanguageExtensions.Areas.Invariance;
-using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
 
 namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml
 {
@@ -29,23 +29,18 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml
 
         internal override IReadOnlyCollection<IMxElement> ToMxElements()
         {
-            var topLevelCell = MxCell.CreateEmpty(0);
-
-            var secondCell = new MxCell(
-                1,
-                Maybe.CreateNone<string>(),
-                Maybe.CreateNone<string>(),
-                Maybe.CreateNone<int>(),
-                0,
-                Maybe.CreateNone<MxGeometry>());
-
-            var headingCell = new MxCell(
-                2,
-                HeadingText,
-                "swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;",
-                1,
-                1,
-                new MxGeometry(_position.X, _position.Y, 140, 52, Maybe.CreateNone<int>(), Maybe.CreateNone<MxPoint>()));
+            var topLevelCell = MxCellBuilder.StartBuilding(0).Build();
+            var secondCell = MxCellBuilder.StartBuilding(1).WithParent(0).Build();
+            var headingCell = MxCellBuilder.StartBuilding(2)
+                .WithValue(HeadingText)
+                .WithStyle("swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;")
+                .WithParent(1)
+                .WithVertex(1)
+                .WithGeometry(
+                    MxGeometryBuilder.StartBuilding(140, 52)
+                    .WithY(_position.Y)
+                    .WithX(_position.X))
+                .Build();
 
             var propertyCells = new List<MxCell>();
 
@@ -53,13 +48,16 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml
             {
                 var yAxis = _position.Y + ((i + 1) * 26);
 
-                var cell = new MxCell(
-                    i + 3,
-                    Properties.ElementAt(i),
-                    "text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;",
-                    1,
-                    2,
-                    new MxGeometry(230, yAxis, 140, 26, Maybe.CreateNone<int>(), Maybe.CreateNone<MxPoint>()));
+                var cell = MxCellBuilder.StartBuilding(i + 3)
+                    .WithValue(Properties.ElementAt(i))
+                    .WithStyle("text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;")
+                    .WithParent(2)
+                    .WithVertex(1)
+                    .WithGeometry(
+                        new MxGeometryBuilder(140, 26)
+                        .WithX(230)
+                        .WithY(yAxis))
+                    .Build();
 
                 propertyCells.Add(cell);
             }

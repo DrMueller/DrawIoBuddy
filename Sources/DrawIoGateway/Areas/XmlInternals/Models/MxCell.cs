@@ -29,17 +29,6 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models
             _geometry = geometry;
         }
 
-        public static MxCell CreateEmpty(int id)
-        {
-            return new MxCell(
-                id,
-                Maybe.CreateNone<string>(),
-                Maybe.CreateNone<string>(),
-                Maybe.CreateNone<int>(),
-                Maybe.CreateNone<int>(),
-                Maybe.CreateNone<MxGeometry>());
-        }
-
         public XObject ToXml()
         {
             var element = new XElement("mxCell");

@@ -3,7 +3,7 @@ using System.Xml.Linq;
 using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models;
 using Mmu.Mlh.LanguageExtensions.Areas.Collections;
 
-namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Services.Implementation
+namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Factories.Implementation
 {
     internal class XmlDocumentFactory : IXmlDocumentFactory
     {

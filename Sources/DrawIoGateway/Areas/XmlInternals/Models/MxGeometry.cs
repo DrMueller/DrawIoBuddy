@@ -7,8 +7,8 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models
     internal class MxGeometry : IMxElement
     {
         private readonly int _height;
-        private readonly Maybe<int> _relativeCellId;
         private readonly Maybe<MxPoint> _point;
+        private readonly Maybe<int> _relativeCellId;
         private readonly int _width;
         private readonly Maybe<int> _x;
         private readonly Maybe<int> _y;

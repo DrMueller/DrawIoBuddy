@@ -1,7 +1,7 @@
 ﻿using Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Services;
 using Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Services.Implementation;
-using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Services;
-using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Services.Implementation;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Factories;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Factories.Implementation;
 using StructureMap;
 
 namespace Mmu.DrawIoBuddy.DrawIoGateway.Infrastructure.DeependencyInjection

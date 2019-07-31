@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Xml.Linq;
 using Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes;
 using Mmu.DrawIoBuddy.DrawIoGateway.Areas.Strings.Models;
-using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Services;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Factories;
 
 namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Services.Implementation
 {

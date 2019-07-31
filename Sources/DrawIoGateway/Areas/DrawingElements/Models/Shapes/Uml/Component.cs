@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.Models;
-using Mmu.Mlh.LanguageExtensions.Areas.Types.Maybes;
+using Mmu.DrawIoBuddy.DrawIoGateway.Areas.XmlInternals.MxBuilders;
 
 namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml
 {
@@ -8,38 +8,38 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml
     {
         internal override IReadOnlyCollection<IMxElement> ToMxElements()
         {
-            var topLevelCell = MxCell.CreateEmpty(0);
+            var topLevelCell = MxCellBuilder.StartBuilding(0).Build();
+            var secondCell = MxCellBuilder.StartBuilding(1).WithParent(0).Build();
 
-            var secondCell = new MxCell(
-                1,
-                Maybe.CreateNone<string>(),
-                Maybe.CreateNone<string>(),
-                Maybe.CreateNone<int>(),
-                0,
-                Maybe.CreateNone<MxGeometry>());
+            var descriptionCell = MxCellBuilder
+                .StartBuilding(2)
+                .WithValue("Component")
+                .WithStyle("html=1;")
+                .WithVertex(1)
+                .WithParent(1)
+                    .WithGeometry(new MxGeometryBuilder(180, 90)
+                    .WithX(210)
+                    .WithY(210))
+                .Build();
 
-            var headingCell = new MxCell(
-                2,
-                "Component",
-                "html=1;",
-                1,
-                1,
-                new MxGeometry(210, 210, 180, 90, Maybe.CreateNone<int>(), Maybe.CreateNone<MxPoint>()));
-
-            var valueCell = new MxCell(
-                3,
-                string.Empty,
-                "shape=component;jettyWidth=8;jettyHeight=4;",
-                1,
-                2,
-                new MxGeometry(1, Maybe.CreateNone<int>(), 20, 20, 1, new MxPoint(-27, 7)));
+            var componentShapeCell = MxCellBuilder
+                .StartBuilding(3)
+                .WithValue(string.Empty)
+                .WithStyle("shape=component;jettyWidth=8;jettyHeight=4;")
+                .WithVertex(1)
+                .WithParent(2)
+                .WithGeometry(new MxGeometryBuilder(20, 20)
+                    .WithRelativeCellId(1)
+                    .WithX(1)
+                    .WithPoint(new MxPoint(-27, 7)))
+                .Build();
 
             var result = new List<IMxElement>()
             {
                 topLevelCell,
                 secondCell,
-                headingCell,
-                valueCell
+                descriptionCell,
+                componentShapeCell
             };
 
             return result;
