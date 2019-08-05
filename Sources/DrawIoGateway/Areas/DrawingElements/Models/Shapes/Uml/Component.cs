@@ -13,7 +13,7 @@ namespace Mmu.DrawIoBuddy.DrawIoGateway.Areas.DrawingElements.Models.Shapes.Uml
 
             var descriptionCell = MxCellBuilder
                 .StartBuilding(2)
-                .WithValue("Component")
+                .WithValue("&lt;&lt;Annotation&gt;&gt;<br /><b>Component<b>")
                 .WithStyle("html=1;")
                 .WithVertex(1)
                 .WithParent(1)
